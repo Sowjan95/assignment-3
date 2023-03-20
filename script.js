@@ -1,16 +1,25 @@
 // Declare global variables
-let numRows = 0;
-let numCols = 0;
+let numRows = 2;    // default num rows
+let numCols = 3;    // default num cols
 let colorSelected; 
 
 // Add a row
 function addR() {
-    alert("Clicked Add Row"); // Replace this line with your code.
+    numRows += 1;   // increment numRows
+    var table = document.getElementById("grid");
+    var row = table.insertRow();            // insert new row
+    for (var i = 0; i < numCols; i++) {     // insert numCol cells in new row
+        row.insertCell(0);
+    }
 }
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    numCols += 1;   // increment numCols
+    var table = document.getElementById("grid");
+    for (var i = 0; i < table.rows.length; i++) {   // for each row
+        table.rows.item(i).insertCell();            // insert new cell (new col)
+    }
 }
 
 // Remove a row
