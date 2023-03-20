@@ -24,12 +24,18 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    numRows -= 1;   // decrement numRows
+    var table = document.getElementById("grid");
+    table.deleteRow(0);            // delete row
 }
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+    numCols -= 1;   // decrement numCols
+    var table = document.getElementById("grid");
+    for (var i = 0; i < table.rows.length; i++) {   // for each row
+        table.rows.item(i).deleteCell(0);           // delete one cell
+    }
 }
 
 // Set global variable for selected color
