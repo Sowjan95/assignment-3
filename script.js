@@ -9,7 +9,8 @@ function addR() {
     var table = document.getElementById("grid");
     var row = table.insertRow();            // insert new row
     for (var i = 0; i < numCols; i++) {     // insert numCol cells in new row
-        row.insertCell(0);
+        var cell = row.insertCell(0);
+        cell.onclick = fillColor();
     }
 }
 
@@ -18,7 +19,8 @@ function addC() {
     numCols += 1;   // increment numCols
     var table = document.getElementById("grid");
     for (var i = 0; i < table.rows.length; i++) {   // for each row
-        table.rows.item(i).insertCell();            // insert new cell (new col)
+        var cell = table.rows.item(i).insertCell();            // insert new cell (new col)
+        cell.onclick = fillColor();
     }
 }
 
