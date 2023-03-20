@@ -44,14 +44,32 @@ function selectColor(){
     console.log(colorSelected);
 }
 
+function fillColor(){
+    var table = document.getElementById("grid");
+    table.addEventListener("click", function(cell) {        // for selected cell
+        cell.target.style.backgroundColor = colorSelected   // color cell
+      });
+}
+
 // Fill all uncolored cells
 function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    var table = document.getElementById("grid");
+    var numCells = numRows * numCols;   // get total cells
+    for (var i = 0; i < numCells; i++) { 
+        var cell = table.getElementsByTagName("td").item(i);    // for each cell
+        if (cell.style.backgroundColor == "")                   // if not colored
+            cell.style.backgroundColor = colorSelected;         // color with colorSelected
+    }
 }
 
 // Fill all cells
 function fillAll(){
-    alert("Clicked Fill All"); // Replace this line with your code.
+    var table = document.getElementById("grid");
+    var numCells = numRows * numCols;   // get total cells
+    for (var i = 0; i < numCells; i++) { 
+        var cell = table.getElementsByTagName("td").item(i);    // for each cell
+        cell.style.backgroundColor = colorSelected;             // color with colorSelected
+    }
 }
 
 // Clear all cells
