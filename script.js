@@ -24,19 +24,19 @@ function addC() {
     }
 }
 
-// Remove a row
+// Remove a row (removes last row)
 function removeR() {
     numRows -= 1;   // decrement numRows
     var table = document.getElementById("grid");
-    table.deleteRow(0);            // delete row
+    table.deleteRow(numRows);            // delete row
 }
 
-// Remove a column
+// Remove a column (removes last column)
 function removeC() {
     numCols -= 1;   // decrement numCols
     var table = document.getElementById("grid");
     for (var i = 0; i < table.rows.length; i++) {   // for each row
-        table.rows.item(i).deleteCell(0);           // delete one cell
+        table.rows.item(i).deleteCell(numCols);           // delete one cell
     }
 }
 
@@ -56,7 +56,7 @@ function fillColor(){
 // Fill all uncolored cells
 function fillU(){
     var table = document.getElementById("grid");
-    var numCells = numRows * numCols;   // get total cells
+    var numCells = table.querySelectorAll("td").length;     // get total cells
     for (var i = 0; i < numCells; i++) { 
         var cell = table.getElementsByTagName("td").item(i);    // for each cell
         if (cell.style.backgroundColor == "")                   // if not colored
@@ -67,7 +67,7 @@ function fillU(){
 // Fill all cells
 function fillAll(){
     var table = document.getElementById("grid");
-    var numCells = numRows * numCols;   // get total cells
+    var numCells = table.querySelectorAll("td").length;     // get total cells
     for (var i = 0; i < numCells; i++) { 
         var cell = table.getElementsByTagName("td").item(i);    // for each cell
         cell.style.backgroundColor = colorSelected;             // color with colorSelected
@@ -77,7 +77,7 @@ function fillAll(){
 // Clear all cells
 function clearAll(){
     var table = document.getElementById("grid");
-    var numCells = numRows * numCols;   // get total cells
+    var numCells = table.querySelectorAll("td").length;     // get total cells
     for (var i = 0; i < numCells; i++) { 
         var cell = table.getElementsByTagName("td").item(i);    // for each cell
         cell.style.backgroundColor = "";                        // remove color
