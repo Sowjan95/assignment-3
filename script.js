@@ -74,5 +74,10 @@ function fillAll(){
 
 // Clear all cells
 function clearAll(){
-    alert("Clicked Clear All"); // Replace this line with your code.
+    var table = document.getElementById("grid");
+    var numCells = numRows * numCols;   // get total cells
+    for (var i = 0; i < numCells; i++) { 
+        var cell = table.getElementsByTagName("td").item(i);    // for each cell
+        cell.style.backgroundColor = "";                        // remove color
+    }
 }
